@@ -1,6 +1,6 @@
 package com.instamobile.kotlinlogin.Retrofit
 
-import com.facebook.CallbackManager
+
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
