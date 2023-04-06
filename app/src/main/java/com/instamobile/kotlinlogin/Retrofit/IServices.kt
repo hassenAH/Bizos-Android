@@ -1,8 +1,7 @@
 package com.instamobile.kotlinlogin.Retrofit
 
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 interface IServices {
     @POST("user/compte")
@@ -16,4 +15,15 @@ interface IServices {
     @FormUrlEncoded
     fun loginUser( @Field("email") email:String,
                    @Field("password") password:String)
+
+    /*@GET("user/resetpassword/{email}")
+    fun Forgetpassword(@Path("email") email: String?)*/
+
+
+    @POST("user/resetpassword")
+    fun Forgetpassword(@Field("email") email:String)
+    @POST("user/resetpwd")
+    fun OTPVerification(@Field("code") code:String)
+    @POST("user/changepwd")
+    fun Changepassword(@Field("email") email:String,@Field("password") password:String)
 }
