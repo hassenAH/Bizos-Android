@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 33
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.instamobile.kotlinlogin"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,6 +42,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     //facebook sdk
     implementation 'com.facebook.android:facebook-android-sdk:5.0.0'
 }
