@@ -45,8 +45,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
          txtForget = findViewById(R.id.Forget)
         txtForget.setOnClickListener{
-    val ForgetPasswordIntent = Intent(this, ForgetPassword::class.java)
-    startActivity(ForgetPasswordIntent)
+    val forgetPasswordIntent = Intent(this, ForgetPassword::class.java)
+    startActivity(forgetPasswordIntent)
+            finish()
 }
         //google sign in
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
