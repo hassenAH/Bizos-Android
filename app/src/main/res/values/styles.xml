@@ -3,18 +3,11 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#E1D9C4</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <color name="colorPrimaryLight">#F8F2E2</color>
 
-        <color name="colorSecondary">#E1D9C4</color>
-        <color name="colorSecondaryDark">#262949</color>
-
-
-        <color name="black">#FF000000</color>
-        <color name="white">#EDEDED</color>
     </style>
 
 </resources>

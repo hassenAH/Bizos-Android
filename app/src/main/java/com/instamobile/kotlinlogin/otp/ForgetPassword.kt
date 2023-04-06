@@ -9,8 +9,8 @@ import com.instamobile.kotlinlogin.MainActivity
 import com.instamobile.kotlinlogin.R
 
 class ForgetPassword : AppCompatActivity() {
-    @SuppressLint("WrongViewCast", "MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
+
+       override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forget_password)
         val txtEmail = findViewById<EditText>(R.id.txtEmail)
