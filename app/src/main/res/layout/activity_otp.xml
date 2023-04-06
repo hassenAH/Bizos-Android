@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="never"
-    tools:context=".otp.Otp">
+    tools:context="otp.Otp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
 
 
     <EditText
-        android:id="@+id/etEmail"
+        android:id="@+id/otpText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -60,9 +60,9 @@
         android:textAllCaps="true"
         android:textColor="#B00020"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/etEmail"
-        app:layout_constraintStart_toStartOf="@+id/etEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+        app:layout_constraintEnd_toEndOf="@+id/otpText"
+        app:layout_constraintStart_toStartOf="@+id/otpText"
+        app:layout_constraintTop_toBottomOf="@+id/otpText" />
 
     <Button
         android:id="@+id/btn_verify"
