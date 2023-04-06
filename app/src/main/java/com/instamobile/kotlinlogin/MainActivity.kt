@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -14,10 +15,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.instamobile.kotlinlogin.otp.ForgetPassword
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val RC_SIGN_IN = 1
+    lateinit var txtForget: TextView
     lateinit var googleSignInClient: GoogleSignInClient
     lateinit var callbackManager: CallbackManager
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +43,11 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         setContentView(R.layout.activity_main)
-
-
+         txtForget = findViewById(R.id.Forget)
+        txtForget.setOnClickListener{
+    val ForgetPasswordIntent = Intent(this, ForgetPassword::class.java)
+    startActivity(ForgetPasswordIntent)
+}
         //google sign in
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
