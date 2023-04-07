@@ -2,9 +2,13 @@ package com.instamobile.kotlinlogin
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Log
 import android.view.View
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -15,10 +19,28 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.instamobile.kotlinlogin.Retrofit.IServices
+import com.instamobile.kotlinlogin.Retrofit.RetrofitClient
 import com.instamobile.kotlinlogin.otp.ForgetPassword
+import com.instamobile.kotlinlogin.otp.Otp
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var iService: IServices
+  internal var compositeDisposable = CompositeDisposable()
+    override fun onStop() {
+        compositeDisposable.clear()
+        super.onStop()
+    }
+
+    lateinit var btnSignIn: Button
+    lateinit var emailEt: EditText
+    lateinit var passwordEd: EditText
+
     private val RC_SIGN_IN = 1
     lateinit var txtForget: TextView
     lateinit var googleSignInClient: GoogleSignInClient
@@ -43,6 +65,28 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         setContentView(R.layout.activity_sign_up)
+
+
+        btnSignIn = findViewById(R.id.btnLogin)
+        emailEt = findViewById(R.id.etEmail)
+        passwordEd = findViewById(R.id.etPassword)
+
+
+        val retrofit = RetrofitClient.getInstance()
+//init Api
+          iService = retrofit.create(IServices::class.java)
+
+
+        btnSignIn.setOnClickListener {
+            val intent = Intent(this,Otp::class.java)
+            startActivity(intent)
+           // Toast.makeText(this@MainActivity,"hdgjzhegdjz",).show()
+            //loginUser(emailEt.text.toString(),passwordEd.text.toString())
+        }
+
+
+
+
          txtForget = findViewById(R.id.Forget)
         txtForget.setOnClickListener{
     val forgetPasswordIntent = Intent(this, ForgetPassword::class.java)
@@ -66,6 +110,17 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun loginUser(email: String,password: String){
+        compositeDisposable.addAll(iService.loginUser(email, password).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()
+
+        ).subscribe{
+            result->Toast.makeText(this@MainActivity,result,Toast.LENGTH_SHORT).show()
+        }
+        )
+    }
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

@@ -1,5 +1,9 @@
 package com.instamobile.kotlinlogin.Retrofit
 
+import com.instamobile.kotlinlogin.ResponseModel.UserResponse
+import io.reactivex.Observable
+import io.reactivex.Observer
+import retrofit2.Call
 import retrofit2.http.*
 
 
@@ -10,11 +14,11 @@ interface IServices {
                      @Field("last_name") lastName:String,
                      @Field("email") email:String,
                      @Field("password") password:String
-                     )
+                     ):Observable<String>
     @POST("user/Signin")
     @FormUrlEncoded
     fun loginUser( @Field("email") email:String,
-                   @Field("password") password:String)
+                   @Field("password") password:String):Observable<String>
 
     /*@GET("user/resetpassword/{email}")
     fun Forgetpassword(@Path("email") email: String?)*/
