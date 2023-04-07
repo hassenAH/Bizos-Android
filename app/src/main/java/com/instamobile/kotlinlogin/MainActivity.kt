@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     loginError.text = error?.message
                 }
             })
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_sign_up)
          txtForget = findViewById(R.id.Forget)
         txtForget.setOnClickListener{
     val forgetPasswordIntent = Intent(this, ForgetPassword::class.java)
