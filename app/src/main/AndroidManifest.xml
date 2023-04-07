@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".SignUp"
+            android:name=".Profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
