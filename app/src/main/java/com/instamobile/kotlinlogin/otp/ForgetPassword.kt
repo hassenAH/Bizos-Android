@@ -25,5 +25,5 @@ class ForgetPassword : AppCompatActivity() {
             finish()
         }
     }
-    
+
 }
