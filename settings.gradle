@@ -1,2 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+
+    }
+}
+rootProject.name = "Nebula Gaming"
 include ':app'
-rootProject.name='KotlinLogin'
+include ':libraries:Shared'
+include ':libraries:AuthModule'
+include ':libraries:ApiModule'
+include ':libraries:RoomModule'
+include ':libraries:Admin'
+include ':app:mylibrary'

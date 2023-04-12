@@ -1,61 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_gravity="center"
+    tools:context=".ProfileActivity">
 
-    tools:context=".Profile">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:padding="8dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <ImageView
-                    android:padding="5dp"
-                    android:layout_alignParentStart="true"
-                    android:src="@drawable/ic_arrow"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"/>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-
-
-    </LinearLayout>
-
-    <include
-        android:layout_gravity="center"
-        layout="@layout/profile_image"
+    <FrameLayout
+        android:id="@+id/cricleshape"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_width="match_parent" />
-    <ScrollView
+        android:layout_gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/nameUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top">
+
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/cntdesc"
+                android:src="@drawable/circle" />
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/photoProf"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/avatar_profile_png_picture"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/numlevel"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/broderprofile"
+            android:fontFamily="@font/merriweather_black_italic"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/nameUser"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/amaranth"
+        android:gravity="center"
+        tools:text="@string/your_name"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cricleshape" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <include layout="@layout/profile_add"/>
-            <include layout="@layout/profile_email"/>
-        </LinearLayout>
-    </ScrollView>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/pTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameUser"
+        tools:ignore="SpeakableTextPresentCheck" />
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pViewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pTabLayout" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
