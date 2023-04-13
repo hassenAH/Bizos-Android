@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/articlesFragment">
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.instamobile.kotlinlogin.fragments.CasesFragment"
+        android:label="Cases"
+        app:popUpTo="@id/articlesFragment"
+        tools:layout="@layout/fragment_cases" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.instamobile.kotlinlogin.fragments.AgendaFragment"
+        android:label="Agenda"
+        app:popUpTo="@id/articlesFragment"
+        tools:layout="@layout/fragment_agenda" />
+    <fragment
+        android:id="@+id/jobOffersFragment"
+        android:name="com.instamobile.kotlinlogin.fragments.PacksFragment"
+        android:label="Packs"
+        app:popUpTo="@id/articlesFragment"
+        tools:layout="@layout/fragment_packs" />
+
+
+
+
+</navigation>
