@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnSignIn.setOnClickListener {
-            val intent = Intent(this,Otp::class.java)
+            val intent = Intent(this,LawyerHome::class.java)
             startActivity(intent)
            // Toast.makeText(this@MainActivity,"hdgjzhegdjz",).show()
             //loginUser(emailEt.text.toString(),passwordEd.text.toString())
